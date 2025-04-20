@@ -1,38 +1,31 @@
-import calculator.Calculator;
-
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+import java.util.Random;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        int randomNumber = new Random().nextInt(100);
+        int userGuess = 0;
 
-        System.out.println("Enter number 1");
-        double num1 = scanner.nextDouble();
-
-        System.out.println("Enter number 2");
-        double num2 = scanner.nextDouble();
-
-        System.out.println("Enter operator (+, - , * , /)");
-        String operator = scanner.next();
-
-        switch (operator){
-            case "+":
-                System.out.println(calculator.add(num1, num2));
-                break;
-            case "-":
-                System.out.println(calculator.subtract(num1, num2));
-                break;
-            case "*":
-                System.out.println(calculator.multiply(num1, num2));
-                break;
-            case "/":
-                System.out.println(calculator.divide(num1, num2));
-                break;
+        while(userGuess != randomNumber){
+            System.out.println("Please enter a number between 1 and 100");
+            userGuess = scanner.nextInt();
+            System.out.println("You guessed: " + userGuess);
+            checkGuess(userGuess, randomNumber);
         }
 
+
+    }
+
+    public static void checkGuess(int userGuess, int randomNumber) {
+        if(userGuess < randomNumber){
+            System.out.println("Your guess is too low");
+        } else if (userGuess > randomNumber) {
+            System.out.println("Your guess is too high");
+        } else if (userGuess == randomNumber) {
+            System.out.println("Bingo!");
+        }
     }
 }
 
