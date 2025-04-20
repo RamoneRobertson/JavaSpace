@@ -11,9 +11,9 @@ public class Account {
         }
     }
 
-    public void withdraw(double value) throws InsufficientFundsException {
+    public void withdraw(double value) throws AccountException {
         if(value > balance){
-            throw new InsufficientFundsException("Looks like the funds aint funding my boi. Trying to withdraw more than you got.");
+            throw new AccountException(new InsufficientFundsException());
         }
     }
 }
