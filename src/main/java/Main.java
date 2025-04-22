@@ -1,12 +1,17 @@
 import generics.GenericList;
 
-import java.util.Scanner;
-import java.util.Random;
-
 public class Main {
 
     public static void main(String[] args) {
-        new GenericList<>()
+        GenericList<Integer> list = new GenericList<>();
+
+        list.add(34);
+        list.add(45);
+        list.add(65);
+
+        for(int i= 0; i < list.length(); i++){
+            System.out.println(list.get(i));
+        }
     }
 }
 

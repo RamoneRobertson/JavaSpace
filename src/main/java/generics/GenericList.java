@@ -14,4 +14,8 @@ public class GenericList <T> {
     public T get(int index){
         return items[index];
     }
+
+    public int length(){
+        return count;
+    }
 }
